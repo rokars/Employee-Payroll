@@ -29,7 +29,7 @@ public class EmployeeTest {
     }
 
     @Test
-    void testPassengerTitle() {
+    void testEmployeeTitle() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {new Employee("Sir", "Johhny", "012345", "0874567", "Full-time", 20);});
         assertEquals("Invalid employee title" , e.getMessage());
 
@@ -43,7 +43,7 @@ public class EmployeeTest {
     }
 
     @Test
-    void testPassengerName() {
+    void testEmployeeName() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {new Employee("Mr", "Jo", "012345", "0874567", "Full-time", 20);});
         assertEquals("Employee name must contain atleast 5 characters" , e.getMessage());
 
@@ -52,31 +52,31 @@ public class EmployeeTest {
     }
 
     @Test
-    void testPassengerPPSID() {
+    void testEmployeePPSID() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {new Employee("Mr", "Johhny", "012", "0874567", "Full-time", 20);});
         assertEquals("Employee PPS should be 6 characters", e.getMessage());
     }
 
     @Test
-    void testPassengerPhone() {
+    void testEmployeePhone() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {new Employee("Mr", "Johhny", "012345", "087", "Full-time", 20);});
         assertEquals("Employee phone number should be 7 characters", e.getMessage());
     }
 
     @Test
-    void testPassengerEmployementType() {
+    void testEmployeeEmployementType() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {new Employee("Mr", "Johhny", "012345", "0874567", "Half-time", 20);});
         assertEquals("Invalid employee employement type", e.getMessage());
     }
 
     @Test
-    void testPassengerAge() {
+    void testEmployeeAge() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {new Employee("Mr", "Johhny", "012345", "0874567", "Full-time", 5);});
         assertEquals("Age must be over 18", e.getMessage());
     }
 
     @Test
-    void testPassengerList() {
+    void testEmployeeList() {
         assertDoesNotThrow((Executable) EmployeeList::new);
 
         EmployeeList el = new EmployeeList();
@@ -97,19 +97,4 @@ public class EmployeeTest {
         Employee e2 = new Employee("Mrs", "Silver", "323331", "0871234", "Part-time", 56);
         assertFalse(el.deleteEmployee(e2));
     }
-
-    /*@Test
-    void testFindPassenger() {
-        PassengerList pl = new PassengerList();
-        Passenger p1 = new Passenger("Mr", "Richard", "012345678910", "0871111111", 21);
-        Passenger p2 = new Passenger("Mr", "John", "0123456521233", "08722222222", 41);
-        pl.addPassenger(p1);
-        pl.addPassenger(p2);
-        assertEquals(2, pl.getCount());
-
-        assertEquals(p1, pl.findPassenger("Richard"));
-        assertEquals(p2, pl.findPassenger("John"));
-        assertNull(pl.findPassenger("Brian"));
-    }
-     */
 }
