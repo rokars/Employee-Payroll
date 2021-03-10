@@ -1,54 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmployeeList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Employee_Payroll</a> &gt; <a href="index.source.html" class="el_package">ie.gmit</a> &gt; <span class="el_source">EmployeeList.java</span></div><h1>EmployeeList.java</h1><pre class="source lang-java linenums">package ie.gmit;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmployeeList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Employee_Payroll</a> &gt; <a href="index.source.html" class="el_package">ie.gmit</a> &gt; <span class="el_source">EmployeeList.java</span></div><h1>EmployeeList.java</h1><pre class="source lang-java linenums">/*
+    Rokas Cesiunas
+    10 Mar 2021
+    Employee Payroll Exam
+ */
+
+package ie.gmit;
 
 import java.util.ArrayList;
 
 public class EmployeeList {
 
     private ArrayList&lt;Employee&gt; employees;
-<span class="fc" id="L8">    private int count = 0;</span>
+<span class="fc" id="L14">    private int count = 0;</span>
 
-<span class="fc" id="L10">    public EmployeeList() {</span>
-<span class="fc" id="L11">        employees = new ArrayList&lt;Employee&gt;();</span>
-<span class="fc" id="L12">    }</span>
+<span class="fc" id="L16">    public EmployeeList() {</span>
+<span class="fc" id="L17">        employees = new ArrayList&lt;Employee&gt;();</span>
+<span class="fc" id="L18">    }</span>
 
     public void addEmployee(Employee e) {
-<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (findEmployee(e.getPPS_ID()) == null)</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (findEmployee(e.getPPS_ID()) == null)</span>
         {
-<span class="fc" id="L17">            employees.add(e);</span>
-<span class="fc" id="L18">            count++;</span>
+<span class="fc" id="L23">            employees.add(e);</span>
+<span class="fc" id="L24">            count++;</span>
         }
         else {
-<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;Duplicate Employee details found, no object added&quot;);</span>
+<span class="fc" id="L27">            throw new IllegalArgumentException(&quot;Duplicate Employee details found, no object added&quot;);</span>
         }
 
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L30">    }</span>
 
     public Employee findEmployee(String pps) {
 
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (int i = 0; i &lt; count; i++) {</span>
-<span class="fc" id="L29">            Employee emp = employees.get(i);</span>
-<span class="fc bfc" id="L30" title="All 2 branches covered.">            if (emp.getPPS_ID().equals(pps)) {</span>
-<span class="fc" id="L31">                return emp;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (int i = 0; i &lt; count; i++) {</span>
+<span class="fc" id="L35">            Employee emp = employees.get(i);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            if (emp.getPPS_ID().equals(pps)) {</span>
+<span class="fc" id="L37">                return emp;</span>
             }
         }
 
-<span class="fc" id="L35">        return null;</span>
+<span class="fc" id="L41">        return null;</span>
     }
 
     public boolean deleteEmployee(Employee e) {
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (findEmployee(e.getPPS_ID()) != null)</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (findEmployee(e.getPPS_ID()) != null)</span>
         {
-<span class="fc" id="L41">            employees.remove(e);</span>
-<span class="fc" id="L42">            count--;</span>
-<span class="fc" id="L43">            return true;</span>
+<span class="fc" id="L47">            employees.remove(e);</span>
+<span class="fc" id="L48">            count--;</span>
+<span class="fc" id="L49">            return true;</span>
         }
         else {
-<span class="fc" id="L46">            return false;</span>
+<span class="fc" id="L52">            return false;</span>
         }
     }
 
     public int getListSize() {
-<span class="fc" id="L51">        return count;</span>
+<span class="fc" id="L57">        return count;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

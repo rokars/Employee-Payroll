@@ -1,3 +1,9 @@
+/*
+    Rokas Cesiunas
+    10 Mar 2021
+    Employee Payroll Exam
+ */
+
 package ie.gmit;
 
 
